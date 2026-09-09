@@ -162,6 +162,8 @@ jobs:
   deploy:
     name: Simular Deploy
     needs: [linter, seguranca, build, testes, teste_soma, teste_subtracao, teste_multiplicacao, teste_divisao, cobertura] 
+    environment:
+      name: production
     runs-on: ubuntu-latest
     steps:
       - name: Confirmar Deploy
