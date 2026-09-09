@@ -35,6 +35,17 @@ jobs:
       - name: Executar Análise de Segurança
         run: bandit -r calculadora.py
 
+
+  build:
+    - name: gerar artefato ZIP
+      run: zip -r pipeline-demo.zip .
+    - name: publicar artefato
+      uses: actions/upload-artifact@v3
+      with:
+        name: codigo-buildado
+        path: pipeline-demo.zip
+
+
   testes:
     name: Testes Unitários (Python ${{ matrix.python-version }} - ${{ matrix.os }})
     strategy:
