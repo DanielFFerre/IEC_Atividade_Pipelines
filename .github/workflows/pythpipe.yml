@@ -36,10 +36,13 @@ jobs:
         run: bandit -r calculadora.py
 
 
+
   build:
       name: realização do build
       runs-on: ubuntu-latest
       steps:
+      - name: baixar código repositorio
+        uses: actions/checkout@v4
       - name: gerar artefato ZIP
         run: zip -r pipeline-demo.zip .
       - name: publicar artefato
@@ -70,7 +73,8 @@ jobs:
         run: pytest test_calculadora.py
       - name: Baixar artefato
         uses: actions/download-artifact@v3
-        with: name:codigo-buildado
+        with: 
+          name: codigo-buildado
       - name: extrair artefato
         run: unzip pipeline-demo.zip
 
@@ -155,7 +159,7 @@ jobs:
 
   deploy:
     name: Simular Deploy
-    needs: [linter, seguranca, testes, teste_soma, teste_subtracao, teste_multiplicacao, teste_divisao, cobertura] 
+    needs: [linter, seguranca, build, testes, teste_soma, teste_subtracao, teste_multiplicacao, teste_divisao, cobertura] 
     runs-on: ubuntu-latest
     steps:
       - name: Confirmar Deploy
