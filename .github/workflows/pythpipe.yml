@@ -46,7 +46,7 @@ jobs:
       - name: gerar artefato ZIP
         run: zip -r pipeline-demo.zip .
       - name: publicar artefato
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: codigo-buildado
           path: pipeline-demo.zip
@@ -73,7 +73,7 @@ jobs:
       - name: Executar todos os testes unitários
         run: pytest test_calculadora.py
       - name: Baixar artefato
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with: 
           name: codigo-buildado
       - name: extrair artefato
