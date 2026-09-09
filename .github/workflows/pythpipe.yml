@@ -54,6 +54,7 @@ jobs:
 
   testes:
     name: Testes Unitários (Python ${{ matrix.python-version }} - ${{ matrix.os }})
+    needs: build
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-24.04, ubuntu-22.04]
