@@ -37,7 +37,7 @@ jobs:
 
 
   build:
-      name: Análise de Segurança
+      name: realização do build
       runs-on: ubuntu-latest
       steps:
       - name: gerar artefato ZIP
