@@ -8,6 +8,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # copia o resto do codigo fonte
 COPY . .
 # qual porta a aplicação usa
-EXPOSE 5000
+EXPOSE 5001
 # comando para ligar a aplicação
 CMD ["python", "calculadora.py"]
