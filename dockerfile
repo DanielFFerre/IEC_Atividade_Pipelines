@@ -10,4 +10,4 @@ COPY . .
 # qual porta a aplicação usa
 EXPOSE 5000
 # comando para ligar a aplicação
-CMD ["python", "app.py"]
+CMD ["python", "calculadora.py"]
